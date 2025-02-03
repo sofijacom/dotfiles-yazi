@@ -1,0 +1,3 @@
+# ~/.config/yazi/yazi.toml
+[manager]
+linemode = "size_and_mtime"
