@@ -1,2 +1,4 @@
 [flavor]
-use = "tokyonight"
+use = "catppuccin-macchiato"
+
+#dark = "tokyonight"
