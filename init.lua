@@ -118,6 +118,7 @@ require("yatline"):setup({
 })
 
 -- ############################################################
+-- "yatline-dracula"
 
 --local dracula_theme = require("yatline-dracula"):setup()
 --require("yatline"):setup({
@@ -129,6 +130,7 @@ require("yatline"):setup({
 --})
 
 -- #############################################################
+-- yatline-catppuccin
 
 --local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
 --require("yatline"):setup({
@@ -140,12 +142,37 @@ require("yatline"):setup({
 --})
 
 -- #############################################################
+-- yatline-tokyo-night
 
 --local tokyo_night_theme = require("yatline-tokyo-night"):setup("night") -- or moon/storm/day
 --require("yatline"):setup({
 	-- ===
 
 --	theme = tokyo_night_theme,
+
+	-- ===
+--})
+
+-- #############################################################
+-- yatline-gruvbox
+
+--local gruvbox_theme = require("yatline-gruvbox"):setup("dark") -- or "light"
+--require("yatline"):setup({
+	-- ===
+
+--	theme = gruvbox_theme,
+
+	-- ===
+--})
+
+-- #############################################################
+-- yatline-gruvbox-material
+
+--local gruvbox_material_theme = require("yatline-gruvbox-material"):setup({ mode = "dark", toughness = "medium" }) -- or "light" -- or "hard" | "soft"
+--require("yatline"):setup({
+	-- ===
+
+--	theme = gruvbox_material_theme,
 
 	-- ===
 --})
