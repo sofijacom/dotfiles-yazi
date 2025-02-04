@@ -117,6 +117,8 @@ require("yatline"):setup({
 	},
 })
 
+-- Uncomment the topic you like for further use
+
 -- ############################################################
 -- "yatline-dracula"
 
