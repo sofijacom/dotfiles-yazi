@@ -6,6 +6,9 @@
 #dark = "catppuccin-macchiato"
 
 #[flavor]
+#dark = "catppuccin-frappe"
+
+#[flavor]
 #dark = "catppuccin-mocha"
 
 #[flavor]
