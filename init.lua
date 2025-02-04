@@ -1,4 +1,7 @@
 -- ~/.config/yazi/init.lua
+
+--require("starship"):setup()
+
 function Linemode:size_and_mtime()
 local time = math.floor(self._file.cha.mtime or 0)
 if time == 0 then
@@ -22,8 +25,9 @@ require("full-border"):setup {
 -- require("full-border"):setup()
 
 require("smart-enter"):setup {
-	open_multi = true,
+	open_multi = false,
 }
+
 
 require("yatline"):setup({
 	section_separator = { open = "", close = "" },
@@ -34,7 +38,7 @@ require("yatline"):setup({
 		fg = "#1e2030",
 		bg_mode = {
 			normal = "#8aadf4",  -- defaut catppuccin-macchiato
-		--	normal = "#bd93f9",  -- flavors dracula	
+--		    normal = "#bd93f9",  -- flavors dracula
 			select = "#c6a0f6",
 			un_set = "#ed8796",
 		},
@@ -85,30 +89,64 @@ require("yatline"):setup({
 		},
 	},
 
-		status_line = {
-			left = {
-				section_a = {
-					{ type = "string", custom = false, name = "tab_mode" },
-				},
-				section_b = {
-					{ type = "string", custom = false, name = "hovered_size" },
-				},
-				section_c = {
-					{ type = "string", custom = false, name = "tab_path" },
-					{ type = "coloreds", custom = false, name = "count" },
-				},
+	status_line = {
+		left = {
+			section_a = {
+				{ type = "string", custom = false, name = "tab_mode" },
 			},
-			right = {
-				section_a = {
-					{ type = "string", custom = false, name = "cursor_position" },
-				},
-				section_b = {
-					{ type = "string", custom = false, name = "cursor_percentage" },
-				},
-				section_c = {
-					{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
-					{ type = "coloreds", custom = false, name = "permissions" },
-				},
+			section_b = {
+				{ type = "string", custom = false, name = "hovered_size" },
+			},
+			section_c = {
+				{ type = "string", custom = false, name = "tab_path" },
+				{ type = "coloreds", custom = false, name = "count" },
 			},
 		},
+		right = {
+			section_a = {
+				{ type = "string", custom = false, name = "cursor_position" },
+			},
+			section_b = {
+				{ type = "string", custom = false, name = "cursor_percentage" },
+			},
+			section_c = {
+				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
+				{ type = "coloreds", custom = false, name = "permissions" },
+			},
+		},
+	},
 })
+
+-- ############################################################
+
+--local dracula_theme = require("yatline-dracula"):setup()
+--require("yatline"):setup({
+	-- ===
+
+--	theme = dracula_theme,
+
+	-- ===
+--})
+
+-- #############################################################
+
+--local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
+--require("yatline"):setup({
+	-- ===
+
+--	theme = catppuccin_theme,
+
+	-- ===
+--})
+
+-- #############################################################
+
+--local tokyo_night_theme = require("yatline-tokyo-night"):setup("night") -- or moon/storm/day
+--require("yatline"):setup({
+	-- ===
+
+--	theme = tokyo_night_theme,
+
+	-- ===
+--})
+
