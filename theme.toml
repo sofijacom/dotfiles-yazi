@@ -2,6 +2,12 @@
 dark = "catppuccin-macchiato"
 
 #[flavor]
+#dark = "catppuccin-mocha"
+
+#[flavor]
+#light = "catppuccin-latte"
+
+#[flavor]
 #use = "tokyonight"
 
 #[flavor]
