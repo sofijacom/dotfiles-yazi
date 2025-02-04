@@ -33,8 +33,8 @@ require("yatline"):setup({
 	style_a = {
 		fg = "#1e2030",
 		bg_mode = {
-			normal = "#8aadf4",  -- defaut color
-		--	normal = "#bd93f9",  -- dracula	color	
+			normal = "#8aadf4",  -- defaut catppuccin-macchiato
+		--	normal = "#bd93f9",  -- flavors dracula	
 			select = "#c6a0f6",
 			un_set = "#ed8796",
 		},
