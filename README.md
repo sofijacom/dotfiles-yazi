@@ -1,6 +1,6 @@
 # dotfiles-yazi
 
-- Default
+- Default yatline
 
 ![2025-02-04_21-02](https://github.com/user-attachments/assets/d0faca58-fac3-44d3-83ac-3b177d4d5722)
 
