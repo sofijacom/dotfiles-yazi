@@ -12,7 +12,18 @@ on = ["<Enter>"]
 run = "plugin smart-enter"
 desc = "Enter the child directory, or open the selected file"
 
-#[[manager.prepend_keymap]]
-#on = ["<Backspace>"]
-#run = "leave"
-#desc = "Go back to the parent directory"
+[[manager.prepend_keymap]]
+on = ["<Backspace>"]
+run = "leave"
+desc = "Go back to the parent directory"
+
+prepend_keymap = [
+    # glow.yazi  ctrl+e , ctrl+y
+    { on = ["<C-e>"], run = "seek 5" },
+    { on = ["<C-y>"], run = "seek -5" },
+]
+
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin max-preview"
+desc = "Maximize or restore preview"
