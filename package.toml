@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "c7feb90" }, { use = "yazi-rs/plugins:smart-enter", rev = "c7feb90" }, { use = "imsi32/yatline", rev = "600ed1f" }]
+deps = [{ use = "yazi-rs/plugins:full-border", rev = "c7feb90" }, { use = "yazi-rs/plugins:smart-enter", rev = "c7feb90" }, { use = "imsi32/yatline", rev = "600ed1f" }, { use = "wakaka6/yatline-dracula", rev = "82dde5a" }, { use = "wekauwau/yatline-tokyo-night", rev = "5a8d026" }, { use = "boydaihungst/mediainfo", rev = "e2a7cfd" }, { use = "Reledia/glow", rev = "5ce76dc" }, { use = "Ape/simple-status", rev = "3ef1447" }]
 
 [flavor]
-deps = []
+deps = [{ use = "mingo99/tokyonight", rev = "c0e07b7" }, { use = "yazi-rs/flavors:catppuccin-macchiato", rev = "fd85060" }, { use = "yazi-rs/flavors:catppuccin-mocha", rev = "fd85060" }, { use = "yazi-rs/flavors:catppuccin-latte", rev = "fd85060" }, { use = "dangooddd/kanagawa", rev = "d98f0c3" }, { use = "yazi-rs/flavors:catppuccin-frappe", rev = "fd85060" }]
