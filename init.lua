@@ -1,6 +1,8 @@
 -- ~/.config/yazi/init.lua
 
 require("starship"):setup()
+require("simple-status"):setup()
+require("git"):setup()
 
 function Linemode:size_and_mtime()
 local time = math.floor(self._file.cha.mtime or 0)
