@@ -42,6 +42,8 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 
    - ***Use it to discover markdown files, read documentation directly on the command line. Glow will find local markdown files in subdirectories or a local Git repository.***
 
+## Install
+
 ```
 # Arch Linux (btw)
 pacman -S glow
