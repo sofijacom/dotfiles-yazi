@@ -35,3 +35,5 @@ pacman -S glow
 # Void Linux
 xbps-install -S glow
 ```
+
+![2025-02-08_03-53](https://github.com/user-attachments/assets/62bfedd4-c909-4cb6-aad1-a315c3486ce5)
