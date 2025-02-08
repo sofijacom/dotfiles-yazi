@@ -45,7 +45,7 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 > Install
 
 ```
-# Arch Linux (btw)
+# Arch Linux
 pacman -S glow
 
 # Void Linux
