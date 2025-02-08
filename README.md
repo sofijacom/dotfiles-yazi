@@ -20,3 +20,18 @@
 ```
 git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 ```
+
+## ⚡️ Required
+- for *glow.yazi* plugin to work
+
+  - ***Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.***
+
+   - ***Use it to discover markdown files, read documentation directly on the command line. Glow will find local markdown files in subdirectories or a local Git repository.***
+
+```
+# Arch Linux (btw)
+pacman -S glow
+
+# Void Linux
+xbps-install -S glow
+```
