@@ -26,7 +26,7 @@ flavors Dracula + yatline-dracula
 
 </div>
 
-- **Clone the repository**
+## ✨ **Clone the repository**
 
 ```
 git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
