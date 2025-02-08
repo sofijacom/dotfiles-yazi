@@ -36,7 +36,7 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 ```
 
 ## ⚡️ Required
-- for *glow.yazi* plugin to work
+- for ***glow.yazi*** plugin to work
 
   - ***Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.***
 
