@@ -46,10 +46,10 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 
 ```
 # Arch Linux
-pacman -S glow
+sudo pacman -S glow
 
 # Void Linux
-xbps-install -S glow
+sudo xbps-install -S glow
 ```
 
 <div align="center">
