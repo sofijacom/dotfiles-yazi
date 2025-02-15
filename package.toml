@@ -38,6 +38,16 @@ use = "boydaihungst/mediainfo"
 rev = "f565c5a"
 hash = "15d0dbb4e9ba84eb1f2dbb8e9e249bf6"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "beb586a"
+hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "f6939fb"
+hash = "8ae899541dc7accb680ee4fd382a09c"
+
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "c0e07b7"
