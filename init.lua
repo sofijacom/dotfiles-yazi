@@ -2,7 +2,6 @@
 
 require("starship"):setup()
 require("simple-status"):setup()
-require("git"):setup()
 
 function Linemode:size_and_mtime()
 local time = math.floor(self._file.cha.mtime or 0)
@@ -136,14 +135,14 @@ require("yatline"):setup({
 -- #############################################################
 -- yatline-catppuccin
 
---local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
---require("yatline"):setup({
+local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
+require("yatline"):setup({
 	-- ===
 
---	theme = catppuccin_theme,
+	theme = catppuccin_theme,
 
 	-- ===
---})
+})
 
 -- #############################################################
 -- yatline-tokyo-night
