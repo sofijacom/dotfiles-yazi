@@ -58,6 +58,24 @@ sudo xbps-install -S glow
 
 </div>
 
+## ⚡️ Required
+- for ***mediainfo.yazi***
+> Install
+
+```
+# Arch Linux
+sudo pacman -S mediainfo
+
+# Void Linux
+sudo xbps-install -S mediainfo
+```
+<div align="center">
+ 
+ ![2025-02-16_00-46](https://github.com/user-attachments/assets/c77449d9-0b8e-41b1-a18c-8a46ff5ba05e)
+
+ </div>
+
+
 - To update plugins in Yazi, you can use the ya command:
   - To add a plugin: ya pack -a <plugin_name>.
   - To install plugins: ya pack -i.
