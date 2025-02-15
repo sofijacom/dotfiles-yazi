@@ -1,5 +1,69 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "c7feb90" }, { use = "yazi-rs/plugins:smart-enter", rev = "c7feb90" }, { use = "imsi32/yatline", rev = "600ed1f" }, { use = "wakaka6/yatline-dracula", rev = "82dde5a" }, { use = "wekauwau/yatline-tokyo-night", rev = "5a8d026" }, { use = "boydaihungst/mediainfo", rev = "e2a7cfd" }, { use = "Reledia/glow", rev = "5ce76dc" }, { use = "Ape/simple-status", rev = "3ef1447" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "c7feb90"
+hash = "a61bb2d21a08bf1d18f0a549e5eb1475"
 
-[flavor]
-deps = [{ use = "mingo99/tokyonight", rev = "c0e07b7" }, { use = "yazi-rs/flavors:catppuccin-macchiato", rev = "fd85060" }, { use = "yazi-rs/flavors:catppuccin-mocha", rev = "fd85060" }, { use = "yazi-rs/flavors:catppuccin-latte", rev = "fd85060" }, { use = "dangooddd/kanagawa", rev = "d98f0c3" }, { use = "yazi-rs/flavors:catppuccin-frappe", rev = "fd85060" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "c7feb90"
+hash = "c1a2739e9ef2d837030ccb4267be3ed1"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "600ed1f"
+hash = "99fc27c62b8efe3840bd237f9cbf8684"
+
+[[plugin.deps]]
+use = "wakaka6/yatline-dracula"
+rev = "82dde5a"
+hash = "bc0f8b6847f57a3519050b18ab85ae8"
+
+[[plugin.deps]]
+use = "wekauwau/yatline-tokyo-night"
+rev = "5a8d026"
+hash = "60e83a7a6d5f6dc00480bc33dbbf3888"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "e2a7cfd"
+hash = ""
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "5ce76dc"
+hash = ""
+
+[[plugin.deps]]
+use = "Ape/simple-status"
+rev = "3ef1447"
+hash = "68603fdd1dcaf415227e2c77a9317947"
+
+[[flavor.deps]]
+use = "mingo99/tokyonight"
+rev = "c0e07b7"
+hash = "2b4ffd31c14f6e3fa58502a1262e22b9"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "fd85060"
+hash = "c34feed32d555e79ab9a0c0a7bdda2be"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "fd85060"
+hash = "c40e434318a8ceffd01842f8dfb2390e"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "fd85060"
+hash = "8c24a91f7e6abb2a9ac268bfbd356e77"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "d98f0c3"
+hash = ""
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "fd85060"
+hash = "e88895e8f8b7926f20946f273ecc7348"
