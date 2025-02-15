@@ -24,14 +24,14 @@ rev = "5a8d026"
 hash = "60e83a7a6d5f6dc00480bc33dbbf3888"
 
 [[plugin.deps]]
-use = "Reledia/glow"
-rev = "5ce76dc"
-hash = ""
-
-[[plugin.deps]]
 use = "Ape/simple-status"
 rev = "3ef1447"
 hash = "68603fdd1dcaf415227e2c77a9317947"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "5ce76dc"
+hash = "52e5f5c602962e7cbf874da28f52ba45"
 
 [[flavor.deps]]
 use = "mingo99/tokyonight"
@@ -52,11 +52,6 @@ hash = "c40e434318a8ceffd01842f8dfb2390e"
 use = "yazi-rs/flavors:catppuccin-latte"
 rev = "fd85060"
 hash = "8c24a91f7e6abb2a9ac268bfbd356e77"
-
-[[flavor.deps]]
-use = "dangooddd/kanagawa"
-rev = "d98f0c3"
-hash = ""
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
