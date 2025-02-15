@@ -3,16 +3,17 @@
 linemode = "size_and_mtime"
 
 [plugin]
+prepend_preloaders = [
+    # Replace magick, image, video with mediainfo
+    { mime = "{audio,video,image}/*", run = "mediainfo" },
+    { mime = "application/subrip", run = "mediainfo" },
+]
 prepend_previewers = [
-  { name = "*.md", run = "glow" },
+    # Replace magick, image, video with mediainfo
+    { mime = "{audio,video,image}/*", run = "mediainfo"},
+    { mime = "application/subrip", run = "mediainfo" },
 
-  # Replace magick, image, video with mediainfo
-  { mime = "{audio,video,image}/*", run = "mediainfo" },
-  { mime = "application/subrip", run = "mediainfo" },
-
-  # Replace magick, image, video with mediainfo
-  { mime = "{audio,video,image}/*", run = "mediainfo"},
-  { mime = "application/subrip", run = "mediainfo" },
+    { name = "*.md", run = "glow" },
 ]
 
 [[plugin.prepend_fetchers]]
