@@ -33,6 +33,11 @@ use = "Reledia/glow"
 rev = "5ce76dc"
 hash = "52e5f5c602962e7cbf874da28f52ba45"
 
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "f565c5a"
+hash = "15d0dbb4e9ba84eb1f2dbb8e9e249bf6"
+
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "c0e07b7"
