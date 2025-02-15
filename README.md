@@ -73,6 +73,8 @@ sudo xbps-install -S mediainfo
  
  ![2025-02-16_00-46](https://github.com/user-attachments/assets/c77449d9-0b8e-41b1-a18c-8a46ff5ba05e)
 
+ ![2025-02-16_02-52](https://github.com/user-attachments/assets/7129df03-bf0e-47a0-97b3-1064bfbb6911)
+
  </div>
 
 
