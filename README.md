@@ -57,3 +57,9 @@ sudo xbps-install -S glow
 ![2025-02-08_03-53](https://github.com/user-attachments/assets/62bfedd4-c909-4cb6-aad1-a315c3486ce5)
 
 </div>
+
+- To update plugins in Yazi, you can use the ya command:
+  - To add a plugin: ya pack -a <plugin_name>.
+  - To install plugins: ya pack -i.
+  - To update all extensions: ya pack -u.
+  
