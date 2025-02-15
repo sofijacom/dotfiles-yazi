@@ -24,11 +24,6 @@ rev = "5a8d026"
 hash = "60e83a7a6d5f6dc00480bc33dbbf3888"
 
 [[plugin.deps]]
-use = "boydaihungst/mediainfo"
-rev = "e2a7cfd"
-hash = ""
-
-[[plugin.deps]]
 use = "Reledia/glow"
 rev = "5ce76dc"
 hash = ""
