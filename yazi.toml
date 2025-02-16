@@ -15,3 +15,12 @@ prepend_previewers = [
 
     { name = "*.md", run = "glow" },
 ]
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true },
+]
+
+play = [
+  { run = 'mpv "$@"', orphan = true, for = "unix"},
+]
