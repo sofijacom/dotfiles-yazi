@@ -78,8 +78,18 @@ sudo xbps-install -S mediainfo
  </div>
 
 
-- To update plugins in Yazi, you can use the ya command:
-  - To add a plugin: ya pack -a <plugin_name>.
-  - To install plugins: ya pack -i.
-  - To update all extensions: ya pack -u.
+> To update plugins in Yazi, you can use the ya command.
+
+  - To add a plugin:
+```
+ya pack -a <plugin_name>
+```
+  - To install plugins:
+```
+ya pack -i
+```
+  - To update all extensions:
+```
+ya pack -u
+```
   
