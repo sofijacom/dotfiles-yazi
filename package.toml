@@ -9,16 +9,6 @@ rev = "a1738e8"
 hash = "7918aab6a71caf31b58411f789195677"
 
 [[plugin.deps]]
-use = "imsi32/yatline"
-rev = "6b0fc1e"
-hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
-
-[[plugin.deps]]
-use = "wakaka6/yatline-dracula"
-rev = "82dde5a"
-hash = "bc0f8b6847f57a3519050b18ab85ae8"
-
-[[plugin.deps]]
 use = "wekauwau/yatline-tokyo-night"
 rev = "19dbd25"
 hash = "5f00a80a79b9f7fd8e24d6fa5dbb3ae"
@@ -47,6 +37,11 @@ hash = "a8025f2bb311e869069364fba01abffc"
 use = "Rolv-Apneseth/starship"
 rev = "c070754"
 hash = "ebe49da58741aa3bf06c49ee394e0a5a"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "90e0284"
+hash = "8d4cb2dfadcbda045ddaa5c274441f9c"
 
 [[flavor.deps]]
 use = "mingo99/tokyonight"
