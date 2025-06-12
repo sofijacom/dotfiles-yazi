@@ -44,7 +44,7 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 
 > Install
 
-```
+```html
 # Arch Linux
 sudo pacman -S glow
 
