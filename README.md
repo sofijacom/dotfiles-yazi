@@ -35,6 +35,11 @@ _flavors Dracula + yatline-dracula_
 git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 ```
 
+## **Install**
+```
+sudo pacman -S yazi
+```
+
 ## ⚡️ Required
 - for ***glow.yazi*** plugin to work
 
