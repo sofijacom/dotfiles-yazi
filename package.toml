@@ -1,17 +1,17 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "a1738e8"
-hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+rev = "d1c8baa"
+hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "a1738e8"
-hash = "7918aab6a71caf31b58411f789195677"
+rev = "d1c8baa"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
 use = "wekauwau/yatline-tokyo-night"
-rev = "19dbd25"
-hash = "5f00a80a79b9f7fd8e24d6fa5dbb3ae"
+rev = "b4a6310"
+hash = "215729a555fe5286f1eb35520963d08"
 
 [[plugin.deps]]
 use = "Ape/simple-status"
@@ -20,55 +20,50 @@ hash = "68603fdd1dcaf415227e2c77a9317947"
 
 [[plugin.deps]]
 use = "Reledia/glow"
-rev = "c76bf4f"
-hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+rev = "bd3eaa5"
+hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "436cb5f"
-hash = "144c0ac7a449fcab4e78e942eb41702c"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:max-preview"
-rev = "a1738e8"
-hash = "a8025f2bb311e869069364fba01abffc"
+rev = "2093ab7"
+hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "c070754"
-hash = "ebe49da58741aa3bf06c49ee394e0a5a"
+rev = "a63550b"
+hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
 use = "imsi32/yatline"
-rev = "90e0284"
-hash = "8d4cb2dfadcbda045ddaa5c274441f9c"
+rev = "88bd1c5"
+hash = "981acbe9b758b1af3a8154c932bb936d"
 
 [[plugin.deps]]
 use = "wakaka6/yatline-dracula"
-rev = "82dde5a"
-hash = "bc0f8b6847f57a3519050b18ab85ae8"
+rev = "598ea29"
+hash = "303f8ca9084dbdd15c640b1f7388f54d"
 
 [[flavor.deps]]
 use = "mingo99/tokyonight"
-rev = "c0e07b7"
-hash = "2b4ffd31c14f6e3fa58502a1262e22b9"
+rev = "005118e"
+hash = "104dd0f5e87aa4fea8f8e68ffa689a4e"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "68326b4"
-hash = "3ec21bcfd2735cfcbab61faaf43e59e4"
+rev = "4296a38"
+hash = "1e2cc3f0f96197f3dac9591be50bb2af"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "68326b4"
-hash = "2ac87e1b3a61f5887472899e86535d29"
+rev = "4296a38"
+hash = "deff42490f77b222e9d3a84dc16a76c5"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "68326b4"
-hash = "5dffea1e87c50b18b8bb1599f6d4881a"
+rev = "4296a38"
+hash = "509055ecc7e6315cb574be36da7a4495"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "68326b4"
-hash = "7780fbbc8965da5a31a76a0dcd4d1216"
+rev = "4296a38"
+hash = "f9a1b9936072893ab27de5738988b710"

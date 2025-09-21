@@ -2,7 +2,7 @@
 
 # : Manager {{{
 
-[manager]
+[mgr]
 cwd = { fg = "#81c8be" }
 
 # Hovered
@@ -19,11 +19,6 @@ marker_cut      = { fg = "#e78284", bg = "#e78284" }
 marker_marked   = { fg = "#81c8be", bg = "#81c8be" }
 marker_selected = { fg = "#e5c890", bg = "#e5c890" }
 
-# Tab
-tab_active   = { reversed = true }
-tab_inactive = {}
-tab_width    = 1
-
 # Count
 count_copied   = { fg = "#303446", bg = "#a6d189" }
 count_cut      = { fg = "#303446", bg = "#e78284" }
@@ -32,6 +27,15 @@ count_selected = { fg = "#303446", bg = "#e5c890" }
 # Border
 border_symbol = "│"
 border_style  = { fg = "#838ba7" }
+
+# : }}}
+
+
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "#303446", bg = "#8caaee", bold = true }
+inactive = { fg = "#8caaee", bg = "#414559" }
 
 # : }}}
 
@@ -57,20 +61,17 @@ unset_alt  = { fg = "#eebebe", bg = "#414559" }
 # : Status bar {{{
 
 [status]
-separator_open  = ""
-separator_close = ""
-
-# Progress
-progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#8caaee", bg = "#51576d" }
-progress_error  = { fg = "#e78284", bg = "#51576d" }
-
 # Permissions
 perm_sep   = { fg = "#838ba7" }
 perm_type  = { fg = "#8caaee" }
 perm_read  = { fg = "#e5c890" }
 perm_write = { fg = "#e78284" }
 perm_exec  = { fg = "#a6d189" }
+
+# Progress
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#8caaee", bg = "#51576d" }
+progress_error  = { fg = "#8caaee", bg = "#e78284" }
 
 # : }}}
 
@@ -98,7 +99,7 @@ selected = { reversed = true }
 
 # : Completion {{{
 
-[completion]
+[cmp]
 border = { fg = "#8caaee" }
 
 # : }}}
@@ -109,7 +110,7 @@ border = { fg = "#8caaee" }
 [tasks]
 border  = { fg = "#8caaee" }
 title   = {}
-hovered = { fg = "#f4b8e4", underline = true }
+hovered = { fg = "#f4b8e4", bold = true }
 
 # : }}}
 
@@ -138,7 +139,18 @@ footer  = { fg = "#414559", bg = "#c6d0f5" }
 # : }}}
 
 
-# : Notify {{{
+# : Spotter {{{
+
+[spot]
+border   = { fg = "#8caaee" }
+title    = { fg = "#8caaee" }
+tbl_col  = { fg = "#81c8be" }
+tbl_cell = { fg = "#f4b8e4", bg = "#51576d" }
+
+# : }}}
+
+
+# : Notification {{{
 
 [notify]
 title_info  = { fg = "#a6d189" }
@@ -166,6 +178,10 @@ rules = [
 	{ mime = "application/{pdf,doc,rtf}", fg = "#a6d189" },
 
 	# Fallback
+	{ url = "*", fg = "#c6d0f5" },
+	{ url = "*/", fg = "#8caaee" },
+
+	# TODO: remove
 	{ name = "*", fg = "#c6d0f5" },
 	{ name = "*/", fg = "#8caaee" }
 ]

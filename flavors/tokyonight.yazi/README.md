@@ -13,7 +13,9 @@
 ## 🎨 Installation
 
 ```bash
-ya pack -a mingo99/tokyonight
+ya pkg add mingo99/tokyonight
+# upgrade
+ya pkg upgrade
 ```
 
 ## ⚙️ Usage
@@ -22,7 +24,7 @@ Add the these lines to your `theme.toml` configuration file to use it:
 
 ```toml
 [flavor]
-use = "tokyonight"
+dark = "tokyonight"
 ```
 
 ## 📜 License
