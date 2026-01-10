@@ -35,6 +35,12 @@ _flavors Dracula + yatline-dracula_
 git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 ```
 
+## Install
+
+```
+sudo xbps-install -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg ImageMagick
+``
+
 ## ⚡️ Required
 - for ***glow.yazi*** plugin to work
 
