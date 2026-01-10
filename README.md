@@ -39,7 +39,7 @@ git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 
 ```
 sudo xbps-install -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg ImageMagick
-``
+```
 
 ## ⚡️ Required
 - for ***glow.yazi*** plugin to work
