@@ -22,3 +22,6 @@ dark = "catppuccin-macchiato"
 
 #[flavor]
 #dark = "dracula"
+
+#[flavor]
+#dark = "rose-pine-main"
