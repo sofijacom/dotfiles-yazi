@@ -1,6 +1,8 @@
 # ~/.config/yazi/yazi.toml
 [mgr]
 linemode = "size_and_mtime"
+# For example, to change the visible status of hidden files - true
+show_hidden = false
 
 [plugin]
   prepend_preloaders = [
@@ -37,6 +39,7 @@ title = { fg = "green" }
 # Example: `Format: FLAC` with blue color in preview images above
 tbl_col = { fg = "blue" }
 
+# Or, use rules to rewrite the entire default rules:
 [opener]
 edit = [
   { run = 'nvim "$@"', block = true },
@@ -44,4 +47,16 @@ edit = [
 
 play = [
   { run = 'mpv "$@"', orphan = true, for = "unix"},
+]
+
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+	{ mime = "video/*", use = "play" },
+
+	# { mime = "application/json", use = "edit" },
+	{ url = "*.json", use = "edit" },
+
+	# Multiple openers for a single rule
+	{ url = "*.html", use = [ "open", "edit" ] },
 ]

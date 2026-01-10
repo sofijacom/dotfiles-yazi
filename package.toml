@@ -34,11 +34,6 @@ rev = "a63550b"
 hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
-use = "imsi32/yatline"
-rev = "88bd1c5"
-hash = "981acbe9b758b1af3a8154c932bb936d"
-
-[[plugin.deps]]
 use = "wakaka6/yatline-dracula"
 rev = "598ea29"
 hash = "303f8ca9084dbdd15c640b1f7388f54d"

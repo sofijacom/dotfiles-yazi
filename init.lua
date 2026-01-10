@@ -30,93 +30,100 @@ require("smart-enter"):setup {
 }
 
 
-require("yatline"):setup({
-	section_separator = { open = "", close = "" },
-	part_separator = { open = "", close = "" },
-	inverse_separator = { open = "", close = "" },
+-- https://github.com/imsi32/yatline.yazi/wiki
 
-	style_a = {
-		fg = "#1e2030",
-		bg_mode = {
-			normal = "#8aadf4",  -- defaut catppuccin-macchiato
---		    normal = "#bd93f9",  -- flavors dracula
-			select = "#c6a0f6",
-			un_set = "#ed8796",
-		},
-	},
-	style_b = { bg = "#363a4f", fg = "#cad3f5" },
-	style_c = { bg = "#24273a", fg = "#cad3f5" },
+--require("yatline"):setup({
+	--theme = my_theme,
+--	section_separator = { open = "", close = "" },
+--	part_separator = { open = "", close = "" },
+--	inverse_separator = { open = "", close = "" },
 
-	permissions_t_fg = "#a6da95",
-	permissions_r_fg = "#eed49f",
-	permissions_w_fg = "#ed8796",
-	permissions_x_fg = "#91d7e3",
-	permissions_s_fg = "#b7bdf8",
+--	style_a = {
+--		fg = "black",
+--		bg_mode = {
+--			normal = "white",
+--			select = "brightyellow",
+--			un_set = "brightred"
+--		}
+--	},
+--	style_b = { bg = "brightblack", fg = "brightwhite" },
+--	style_c = { bg = "black", fg = "brightwhite" },
 
-	tab_width = 20,
-	tab_use_inverse = false,
+--	permissions_t_fg = "green",
+--	permissions_r_fg = "yellow",
+--	permissions_w_fg = "red",
+--	permissions_x_fg = "cyan",
+--	permissions_s_fg = "white",
 
-	selected = { icon = "󰻭", fg = "#eed49f" },
-	copied = { icon = "", fg = "#a6da95" },
-	cut = { icon = "", fg = "#ed8796" },
+--	tab_width = 20,
+--	tab_use_inverse = false,
 
-	total = { icon = "", fg = "#eed49f" },
-	succ = { icon = "", fg = "#a6da95" },
-	fail = { icon = "", fg = "#ed8796" },
-	found = { icon = "", fg = "#8aadf4" },
-	processed = { icon = "", fg = "#a6da95" },
+--	selected = { icon = "󰻭", fg = "yellow" },
+--	copied = { icon = "", fg = "green" },
+--	cut = { icon = "", fg = "red" },
 
-	show_background = false,
+--	total = { icon = "󰮍", fg = "yellow" },
+--	succ = { icon = "", fg = "green" },
+--	fail = { icon = "", fg = "red" },
+--	found = { icon = "󰮕", fg = "blue" },
+--	processed = { icon = "󰐍", fg = "green" },
 
-	display_header_line = true,
-	display_status_line = true,
+--	show_background = true,
 
-	header_line = {
-		left = {
-			section_a = {
-				{ type = "line", custom = false, name = "tabs", params = { "left" } },
-			},
-			section_b = {},
-			section_c = {},
-		},
-		right = {
-			section_a = {
-				{ type = "string", custom = false, name = "date", params = { "%A, %d %B %Y" } },
-			},
-			section_b = {
-				{ type = "string", custom = false, name = "date", params = { "%X" } },
-			},
-			section_c = {},
-		},
-	},
+--	display_header_line = true,
+--	display_status_line = true,
 
-	status_line = {
-		left = {
-			section_a = {
-				{ type = "string", custom = false, name = "tab_mode" },
-			},
-			section_b = {
-				{ type = "string", custom = false, name = "hovered_size" },
-			},
-			section_c = {
-				{ type = "string", custom = false, name = "tab_path" },
-				{ type = "coloreds", custom = false, name = "count" },
-			},
-		},
-		right = {
-			section_a = {
-				{ type = "string", custom = false, name = "cursor_position" },
-			},
-			section_b = {
-				{ type = "string", custom = false, name = "cursor_percentage" },
-			},
-			section_c = {
-				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
-				{ type = "coloreds", custom = false, name = "permissions" },
-			},
-		},
-	},
-})
+--	component_positions = { "header", "tab", "status" },
+
+--	header_line = {
+--		left = {
+--			section_a = {
+--				{type = "line", custom = false, name = "tabs", params = {"left"}},
+--			},
+--			section_b = {
+--			},
+--			section_c = {
+--			}
+--		},
+--		right = {
+--			section_a = {
+--				{type = "string", custom = false, name = "date", params = {"%A, %d %B %Y"}},
+--			},
+--			section_b = {
+--				{type = "string", custom = false, name = "date", params = {"%X"}},
+--			},
+--			section_c = {
+--			}
+--		}
+--	},
+
+--	status_line = {
+--		left = {
+--			section_a = {
+--				{type = "string", custom = false, name = "tab_mode"},
+--			},
+--			section_b = {
+--				{type = "string", custom = false, name = "hovered_size"},
+--			},
+--			section_c = {
+--				{type = "string", custom = false, name = "hovered_path"},
+--				{type = "coloreds", custom = false, name = "count"},
+--			}
+--		},
+--		right = {
+--			section_a = {
+--				{type = "string", custom = false, name = "cursor_position"},
+--			},
+--			section_b = {
+--				{type = "string", custom = false, name = "cursor_percentage"},
+--			},
+--			section_c = {
+--				{type = "string", custom = false, name = "hovered_file_extension", params = {true}},
+--				{type = "coloreds", custom = false, name = "permissions"},
+--			}
+--		}
+--	},
+--})
 
 -- Uncomment the topic you like for further use
 
@@ -135,14 +142,14 @@ require("yatline"):setup({
 -- #############################################################
 -- yatline-catppuccin
 
-local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
-require("yatline"):setup({
+--local catppuccin_theme = require("yatline-catppuccin"):setup("macchiato") -- or "latte" | "frappe" | "macchiato" | "mocha"
+--require("yatline"):setup({
 	-- ===
 
-	theme = catppuccin_theme,
+--	theme = catppuccin_theme,
 
 	-- ===
-})
+--})
 
 -- #############################################################
 -- yatline-tokyo-night
