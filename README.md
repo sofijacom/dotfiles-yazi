@@ -4,6 +4,39 @@
 
 - **Clone the repository**
 
+
+## ✨ **Clone the repository**
+
 ```
 git clone https://github.com/sofijacom/dotfiles-yazi.git ~/.config/yazi
 ```
+
+## ✨ Install
+
+```
+sudo xbps-install -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg ImageMagick mediainfo glow
+```
+
+#
+
+> [!NOTE]
+> To update plugins in Yazi, you can use the ya command.
+
+ - To add a plugin:
+    
+```
+ya pack -a <plugin_name>
+```
+
+ - To install plugins:
+    
+```
+ya pack -i
+```
+
+ - To update all extensions:
+    
+```
+ya pack -u
+```
+  
