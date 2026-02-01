@@ -18,6 +18,9 @@ _Default yatline_
  
 _yatline-catppuccin_
 
+<img width="750" height="429" alt="Снимок экрана_20260201_234735" src="https://github.com/user-attachments/assets/5363cb3b-cd06-4ac8-bdd2-f32d7ba85363" />
+
+
 <img width="750" height="429" alt="Снимок экрана_20260201_233534" src="https://github.com/user-attachments/assets/1c7918cf-e623-44f7-ac88-be0e9829b2fc" />
 
 
