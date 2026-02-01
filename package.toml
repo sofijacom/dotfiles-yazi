@@ -38,6 +38,11 @@ use = "wakaka6/yatline-dracula"
 rev = "598ea29"
 hash = "303f8ca9084dbdd15c640b1f7388f54d"
 
+[[plugin.deps]]
+use = "wekauwau/yatline-created-time"
+rev = "7cd5e21"
+hash = "af416c7b3f928e38a513bdf465efffa9"
+
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "005118e"
@@ -62,3 +67,8 @@ hash = "509055ecc7e6315cb574be36da7a4495"
 use = "yazi-rs/flavors:catppuccin-frappe"
 rev = "4296a38"
 hash = "f9a1b9936072893ab27de5738988b710"
+
+[[flavor.deps]]
+use = "rachitve6h2g/rose-pine-yazi:rose-pine-main"
+rev = "b987c48"
+hash = "5bca0d57b7db1a8b277e67a8142ea30f"
