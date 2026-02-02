@@ -91,7 +91,7 @@ sudo xbps-install -S mediainfo
  - To add a plugin:
     
 ```
-ya pkg add <plugin_name>
+ya pkg add owner/my-plugin
 ```
 
  - To install plugins:
