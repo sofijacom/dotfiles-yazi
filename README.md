@@ -96,13 +96,13 @@ You can manage your plugins and flavors using the ya pkg subcommand. For example
 ya pkg add owner/my-plugin
 ```
 
-## ya pkg also supports installing a subdirectory from a monorepo as a package. For example, to install the package from https://github.com/yazi-rs/plugins/tree/main/git.yazi, run:
+### _ya pkg also supports installing a subdirectory from a monorepo as a package. For example, to install the package from https://github.com/yazi-rs/plugins/tree/main/git.yazi, run:_
 
 ```
 ya pkg add yazi-rs/plugins:git
 ```
 
-## and it will automatically clone them from GitHub, copy them to your plugins directory, and update the package.toml to lock their versions:
+### _and it will automatically clone them from GitHub, copy them to your plugins directory, and update the package.toml to lock their versions:_
 
 ```
 # ~/.config/yazi/package.toml
@@ -117,31 +117,31 @@ rev  = "9a1129c"
 hash = "a8e15d3c21c02a5af41d46ed04778a02"
 ```
 
-## To delete a plugin:
+### _To delete a plugin:_
 
 ```
 ya pkg delete yazi-rs/plugins:git
 ```
 
-## To list all the plugins managed by ya pkg:
+### _To list all the plugins managed by ya pkg:_
 
 ```
 ya pkg list
 ```
 
-## To install all the plugins with locked versions from package.toml on a new system:
+### _To install all the plugins with locked versions from package.toml on a new system:_
 
 ```
 ya pkg install
 ```
 
-## To upgrade all the plugins to the latest version:
+### _To upgrade all the plugins to the latest version:_
 
 ```
 ya pkg upgrade
 ```
 
-## If you want to pin a plugin to a specific version so that it doesn't get upgraded when running ya pkg upgrade, add an = qualifier before the hash in rev:
+### _If you want to pin a plugin to a specific version so that it doesn't get upgraded when running ya pkg upgrade, add an = qualifier before the hash in rev:_
 
 ```
 [[plugin.deps]]
@@ -150,7 +150,7 @@ use = "owner/my-plugin"
 + rev = "=9a1129c"
 ```
 
-## add and delete, they can accept multiple arguments, which means you can operate on multiple packages at once:
+### _add and delete, they can accept multiple arguments, which means you can operate on multiple packages at once:_
 
 ```
 ya pkg add owner/my-plugin yazi-rs/plugins:git
