@@ -90,19 +90,19 @@ sudo xbps-install -S mediainfo
 
 ## Package Manager
 
-_You can manage your plugins and flavors using the ya pkg subcommand. For example, to install the plugin from https://github.com/owner/my-plugin.yazi, run:_
+> _You can manage your plugins and flavors using the ya pkg subcommand. For example, to install the plugin from https://github.com/owner/my-plugin.yazi, run:_
 
 ```
 ya pkg add owner/my-plugin
 ```
 
-_ya pkg also supports installing a subdirectory from a monorepo as a package. For example, to install the package from https://github.com/yazi-rs/plugins/tree/main/git.yazi, run:_
+> _ya pkg also supports installing a subdirectory from a monorepo as a package. For example, to install the package from https://github.com/yazi-rs/plugins/tree/main/git.yazi, run:_
 
 ```
 ya pkg add yazi-rs/plugins:git
 ```
 
-_and it will automatically clone them from GitHub, copy them to your plugins directory, and update the package.toml to lock their versions:_
+> _and it will automatically clone them from GitHub, copy them to your plugins directory, and update the package.toml to lock their versions:_
 
 ```
 # ~/.config/yazi/package.toml
@@ -117,31 +117,31 @@ rev  = "9a1129c"
 hash = "a8e15d3c21c02a5af41d46ed04778a02"
 ```
 
-_To delete a plugin:_
+> _To delete a plugin:_
 
 ```
 ya pkg delete yazi-rs/plugins:git
 ```
 
-_To list all the plugins managed by ya pkg:_
+> _To list all the plugins managed by ya pkg:_
 
 ```
 ya pkg list
 ```
 
-_To install all the plugins with locked versions from package.toml on a new system:_
+> _To install all the plugins with locked versions from package.toml on a new system:_
 
 ```
 ya pkg install
 ```
 
-_To upgrade all the plugins to the latest version:_
+> _To upgrade all the plugins to the latest version:_
 
 ```
 ya pkg upgrade
 ```
 
-_If you want to pin a plugin to a specific version so that it doesn't get upgraded when running ya pkg upgrade, add an = qualifier before the hash in rev:_
+> _If you want to pin a plugin to a specific version so that it doesn't get upgraded when running ya pkg upgrade, add an = qualifier before the hash in rev:_
 
 ```
 [[plugin.deps]]
@@ -150,7 +150,7 @@ use = "owner/my-plugin"
 + rev = "=9a1129c"
 ```
 
-_add and delete, they can accept multiple arguments, which means you can operate on multiple packages at once:_
+> _add and delete, they can accept multiple arguments, which means you can operate on multiple packages at once:_
 
 ```
 ya pkg add owner/my-plugin yazi-rs/plugins:git
