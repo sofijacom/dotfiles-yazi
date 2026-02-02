@@ -24,7 +24,7 @@ _yatline-catppuccin_
 <img width="750" height="429" alt="Снимок экрана_20260201_233534" src="https://github.com/user-attachments/assets/1c7918cf-e623-44f7-ac88-be0e9829b2fc" />
 
 
-<img width="750" height="402" alt="Снимок экрана_20260110_161854" src="https://github.com/user-attachments/assets/0e3c9b18-576f-45c1-9570-a3224c149325" />
+<img width="750" height="427" alt="Снимок экрана_20260202_024027" src="https://github.com/user-attachments/assets/bd4ece18-f020-4ad8-9654-e42a68963364" />
 
 
 </div>
