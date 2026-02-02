@@ -1,11 +1,11 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "d1c8baa"
+rev = "230b9c6"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-enter"
-rev = "d1c8baa"
+rev = "230b9c6"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
@@ -25,13 +25,13 @@ hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "2093ab7"
-hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
+rev = "dc61636"
+hash = "2fa34959353b6f1a1c33659f50e098fd"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "a63550b"
-hash = "c2021386289a0cbb3e152a052f67c177"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
 
 [[plugin.deps]]
 use = "wakaka6/yatline-dracula"
@@ -46,29 +46,29 @@ hash = "af416c7b3f928e38a513bdf465efffa9"
 [[flavor.deps]]
 use = "mingo99/tokyonight"
 rev = "005118e"
-hash = "104dd0f5e87aa4fea8f8e68ffa689a4e"
+hash = "b65705619d8f3baec00115a2fc431122"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
-rev = "4296a38"
-hash = "1e2cc3f0f96197f3dac9591be50bb2af"
+rev = "9e053d0"
+hash = "2f60298d6c26b6d388c8091a9389fa8f"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
-rev = "4296a38"
-hash = "deff42490f77b222e9d3a84dc16a76c5"
+rev = "9e053d0"
+hash = "8eabb4e88096f10905a6df62cfaadbf4"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-latte"
-rev = "4296a38"
-hash = "509055ecc7e6315cb574be36da7a4495"
+rev = "9e053d0"
+hash = "c6b710b2aa0fb9c6c7f1ec4db6146104"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "4296a38"
-hash = "f9a1b9936072893ab27de5738988b710"
+rev = "9e053d0"
+hash = "e25fb61c14484de843b52430a72b5196"
 
 [[flavor.deps]]
-use = "rachitve6h2g/rose-pine-yazi:rose-pine-main"
-rev = "b987c48"
-hash = "5bca0d57b7db1a8b277e67a8142ea30f"
+use = "Mintass/rose-pine"
+rev = "d91f8f2"
+hash = "87da3630653b6d272e43658418599188"

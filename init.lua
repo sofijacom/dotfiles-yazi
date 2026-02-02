@@ -35,6 +35,7 @@ require("smart-enter"):setup {
 
 require("yatline"):setup({
 theme = my_theme,
+--  Default
 --	section_separator = { open = "", close = "" },
 --	part_separator = { open = "", close = "" },
 --	inverse_separator = { open = "", close = "" },

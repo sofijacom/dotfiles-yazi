@@ -40,7 +40,6 @@ using `ffmpeg` if available and media metadata using `mediainfo`.
 ## Installation
 
 - Install mediainfo CLI:
-
   - [https://mediaarea.net/en/MediaInfo/Download](https://mediaarea.net/en/MediaInfo/Download)
   - Run this command in terminal to check if it's installed correctly:
 
@@ -52,7 +51,6 @@ using `ffmpeg` if available and media metadata using `mediainfo`.
 
 - Install ImageMagick (for linux, you can use your distro package manager to install):
   https://imagemagick.org/script/download.php
-  
 - Install this plugin:
 
   ```bash
@@ -74,7 +72,7 @@ Create `.../yazi/yazi.toml` and add:
 
 > [!IMPORTANT]
 >
-> For yazi nightly replace `name` with `url`
+> For yazi (>=v25.12.29) replace `name` with `url`
 
 ```toml
 [plugin]
@@ -119,4 +117,19 @@ title = { fg = "green" }
 # Value style.
 # Example: `Format: FLAC` with blue color in preview images above
 tbl_col = { fg = "blue" }
+```
+
+## (Optional) Keymaps to hide metadata and to preview images in full screen
+
+> [!IMPORTANT]
+> Use any key you want, but make sure there is no conflicts with [default Keybindings](https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap-default.toml).
+
+Since Yazi prioritizes the first matching key, `prepend_keymap` takes precedence over defaults.
+Or you can use `keymap` to replace all other keys
+
+```toml
+[mgr]
+  prepend_keymap = [
+    { on = "<F9>", run = "plugin mediainfo -- toggle-metadata", desc = "Toggle media preview metadata" },
+  ]
 ```

@@ -2,8 +2,9 @@
 # https://github.com/imsi32/yatline.yazi/wiki
 # https://github.com/yazi-rs/flavors
 
-[flavor]
-dark = "catppuccin-macchiato"
+#[flavor]
+#dark = "catppuccin-macchiato"
+#light = "catppuccin-latte"
 
 #[flavor]
 #dark = "catppuccin-frappe"
@@ -24,4 +25,4 @@ dark = "catppuccin-macchiato"
 #dark = "dracula"
 
 #[flavor]
-#dark = "rose-pine-main"
+#dark = "rose-pine"

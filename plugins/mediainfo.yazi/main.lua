@@ -10,6 +10,16 @@ local skip_labels = {
 	["MD5 of the unencoded content"] = true,
 }
 
+local ENTRY_ACTION = {
+	toggle_metadata = "toggle-metadata",
+}
+
+local STATE_KEY = {
+	units = "units",
+	hide_metadata = "hide_metadata",
+	prev_metadata_area = "prev_metadata_area",
+}
+
 local magick_image_mimes = {
 	avif = true,
 	hei = true,
@@ -18,8 +28,10 @@ local magick_image_mimes = {
 	["heif-sequence"] = true,
 	["heic-sequence"] = true,
 	jxl = true,
+	tiff = true,
 	xml = true,
 	["svg+xml"] = true,
+	["canon-cr2"] = true,
 }
 
 local seekable_mimes = {
@@ -76,7 +88,9 @@ local function image_layer_count(job)
 	if layer_count then
 		return layer_count
 	end
-	local output, err = Command("identify"):arg({ tostring(job.file.url) }):output()
+	local output, err = Command("identify")
+		:arg({ tostring(job.file.path or job.file.cache or job.file.url.path or job.file.url) })
+		:output()
 	if err then
 		return 0
 	end
@@ -110,73 +124,85 @@ function M:peek(job)
 		return
 	end
 	ya.sleep(math.max(0, rt.preview.image_delay / 1000 + start - os.clock()))
-	local cache_mediainfo_path = tostring(cache_img_url_no_skip) .. suffix
-	local output = read_mediainfo_cached_file(cache_mediainfo_path)
-
+	local hide_metadata = get_state(STATE_KEY.hide_metadata)
+	local mediainfo_height = 0
 	local lines = {}
 	local limit = job.area.h
 	local last_line = 0
 	local is_wrap = rt.preview.wrap == "yes"
-
-	if output then
-		local max_width = math.max(1, job.area.w)
-		if output:match("^Error:") then
-			job.args.force_reload_mediainfo = true
-			preload_status, preload_err = self:preload(job)
-			if not preload_status or preload_err then
-				return
+	if not hide_metadata then
+		local cache_mediainfo_path = tostring(cache_img_url_no_skip) .. suffix
+		local output = read_mediainfo_cached_file(cache_mediainfo_path)
+		if output then
+			local max_width = math.max(1, job.area.w)
+			if output:match("^Error:") then
+				job.args.force_reload_mediainfo = true
+				preload_status, preload_err = self:preload(job)
+				if not preload_status or preload_err then
+					return
+				end
+				output = read_mediainfo_cached_file(cache_mediainfo_path)
 			end
-			output = read_mediainfo_cached_file(cache_mediainfo_path)
+
+			for str in output:gsub("\n+$", ""):gmatch("[^\n]*") do
+				local label, value = str:match("(.*[^ ])  +: (.*)")
+				local line
+				if label then
+					if not skip_labels[label] then
+						line = ui.Line({
+							ui.Span(label .. ": "):style(ui.Style():fg("reset"):bold()),
+							ui.Span(value):style(th.spot.tbl_col or ui.Style():fg("blue")),
+						})
+					end
+				elseif str ~= "General" then
+					line = ui.Line({ ui.Span(str):style(th.spot.title or ui.Style():fg("green")) })
+				end
+
+				if line then
+					local line_height = math.max(1, is_wrap and math.ceil(ui.width(line) / max_width) or 1)
+					if (last_line + line_height) > job.skip then
+						table.insert(lines, line)
+					end
+					if (last_line + line_height) >= job.skip + limit then
+						last_line = job.skip + limit
+						break
+					end
+					last_line = last_line + line_height
+				end
+			end
 		end
-
-		for str in output:gsub("\n+$", ""):gmatch("[^\n]*") do
-			local label, value = str:match("(.*[^ ])  +: (.*)")
-			local line
-			if label then
-				if not skip_labels[label] then
-					line = ui.Line({
-						ui.Span(label .. ": "):style(ui.Style():fg("reset"):bold()),
-						ui.Span(value):style(th.spot.tbl_col or ui.Style():fg("blue")),
-					})
-				end
-			elseif str ~= "General" then
-				line = ui.Line({ ui.Span(str):style(th.spot.title or ui.Style():fg("green")) })
-			end
-
-			if line then
-				local line_height = math.max(1, is_wrap and math.ceil(ui.width(line) / max_width) or 1)
-				if (last_line + line_height) > job.skip then
-					table.insert(lines, line)
-				end
-				if (last_line + line_height) >= job.skip + limit then
-					last_line = job.skip + limit
-					break
-				end
-				last_line = last_line + line_height
-			end
-		end
+		mediainfo_height = math.min(limit, last_line)
 	end
-	local mediainfo_height = math.min(limit, last_line)
 
 	if
-		(job.skip > 0 and #lines == 0)
+		(job.skip > 0 and #lines == 0 and not hide_metadata)
 		and (
 			not is_seekable
 			or (is_video and job.skip >= 90)
 			or (
 				(job.mime == "image/adobe.photoshop" or job.mime == "application/postscript")
 				and image_layer_count(job)
-					< (1 + math.floor(math.max(0, get_state("units") and (job.skip / get_state("units")) or 0)))
+					< (1 + math.floor(
+						math.max(0, get_state(STATE_KEY.units) and (job.skip / get_state(STATE_KEY.units)) or 0)
+					))
 			)
 		)
 	then
-		ya.emit(
-			"peek",
-			{ math.max(0, job.skip - (get_state("units") or limit)), only_if = job.file.url, upper_bound = true }
-		)
+		ya.emit("peek", {
+			math.max(0, job.skip - (get_state(STATE_KEY.units) or limit)),
+			only_if = job.file.url,
+			upper_bound = true,
+		})
 		return
 	end
 	force_render()
+	-- NOTE: Hacky way to prevent image overlap with old metadata area
+	if hide_metadata and get_state(STATE_KEY.prev_metadata_area) then
+		ya.preview_widget(job, {
+			ui.Clear(ui.Rect(get_state(STATE_KEY.prev_metadata_area))),
+		})
+		ya.sleep(0.1)
+	end
 	local rendered_img_rect = cache_img_url
 			and fs.cha(cache_img_url)
 			and ya.image_show(
@@ -189,7 +215,6 @@ function M:peek(job)
 				})
 			)
 		or nil
-
 	local image_height = rendered_img_rect and rendered_img_rect.h or 0
 
 	-- NOTE: Workaround case audio has no cover image. Prevent regenerate preview image
@@ -220,12 +245,19 @@ function M:peek(job)
 			}))
 			:wrap(is_wrap and ui.Wrap.YES or ui.Wrap.NO),
 	})
+	-- NOTE: Hacky way to prevent image overlap with old metadata area
+	set_state(STATE_KEY.prev_metadata_area, not hide_metadata and {
+		x = job.area.x,
+		y = job.area.y + image_height,
+		w = job.area.w,
+		h = job.area.h - image_height,
+	} or nil)
 end
 
 function M:seek(job)
 	local h = cx.active.current.hovered
 	if h and h.url == job.file.url then
-		set_state("units", job.units)
+		set_state(STATE_KEY.units, job.units)
 		ya.emit("peek", {
 			math.max(0, cx.active.preview.skip + job.units),
 			only_if = job.file.url,
@@ -242,7 +274,7 @@ function M:preload(job)
 	cache_img_url = seekable_mimes[job.mime] and ya.file_cache(job) or cache_img_url
 	local cache_img_url_cha = cache_img_url and fs.cha(cache_img_url)
 	local err_msg = ""
-	local is_valid_utf8_path = is_valid_utf8(tostring(job.file.url))
+	local is_valid_utf8_path = is_valid_utf8(tostring(job.file.path or job.file.cache or job.file.url))
 	-- video mimetype
 	if job.mime then
 		if string.find(job.mime, "^video/") then
@@ -261,15 +293,11 @@ function M:preload(job)
 					"error",
 					"-threads",
 					1,
-					"-hwaccel",
-					"auto",
-					"-skip_frame",
-					"nokey",
 					"-an",
 					"-sn",
 					"-dn",
 					"-i",
-					tostring(job.file.url),
+					tostring(job.file.path or job.file.cache or job.file.url.path or job.file.url),
 					"-vframes",
 					1,
 					"-q:v",
@@ -282,11 +310,18 @@ function M:preload(job)
 					tostring(cache_img_url),
 				}):output()
 				-- NOTE: Some audio types doesn't have cover image -> error ""
-				if (audio_preload_output.stderr ~= nil and audio_preload_output.stderr ~= "") or audio_preload_err then
+				if
+					(
+						audio_preload_output
+						and audio_preload_output.stderr ~= nil
+						and audio_preload_output.stderr ~= ""
+						and not audio_preload_output.stderr:find("Output file does not contain any stream")
+					) or audio_preload_err
+				then
 					err_msg = err_msg
 						.. string.format("Failed to start `%s`, Do you have `%s` installed?\n", "ffmpeg", "ffmpeg")
 				else
-					cache_img_url_cha = fs.cha(cache_img_url)
+					cache_img_url_cha, _ = fs.cha(cache_img_url)
 					if not cache_img_url_cha then
 						-- NOTE: Workaround case audio has no cover image. Prevent regenerate preview image
 						audio_preload_output, audio_preload_err = require("magick")
@@ -314,18 +349,18 @@ function M:preload(job)
 			-- image
 			elseif string.find(job.mime, "^image/") or job.mime == "application/postscript" then
 				local svg_plugin_ok, svg_plugin = pcall(require, "svg")
-				local _, magick_plugin = pcall(require, "magick")
+				local magick_plugin_ok, magick_plugin = pcall(require, "magick")
 				local mime = job.mime:match(".*/(.*)$")
 
 				local image_plugin = magick_image_mimes[mime]
-						and ((mime == "svg+xml" and svg_plugin_ok) and svg_plugin or magick_plugin)
+						and ((mime == "svg+xml" and svg_plugin_ok) and svg_plugin or (magick_plugin_ok and magick_plugin))
 					or require("image")
 
 				local cache_img_status, image_preload_err
 				-- psd, ai, eps
 				if mime == "adobe.photoshop" or job.mime == "application/postscript" then
 					local layer_index = 0
-					local units = get_state("units")
+					local units = get_state(STATE_KEY.units)
 					if units ~= nil then
 						local max_layer = image_layer_count(job)
 						layer_index = math.floor(math.max(0, job.skip / units))
@@ -333,29 +368,45 @@ function M:preload(job)
 							layer_index = max_layer - 1
 						end
 					end
+					local cache_img_url_tmp = Url(cache_img_url .. ".tmp")
+					if fs.cha(cache_img_url_tmp) then
+						fs.remove("file", cache_img_url_tmp)
+					end
+					local tmp_file_path, _ = fs.unique_name(cache_img_url_tmp)
 					cache_img_status, image_preload_err = magick_plugin
 						.with_limit()
 						:arg({
 							"-background",
 							"none",
-							tostring(job.file.url) .. "[" .. tostring(layer_index) .. "]",
+							tostring(job.file.path or job.file.cache or job.file.url.path or job.file.url)
+								.. "["
+								.. tostring(layer_index)
+								.. "]",
 							"-auto-orient",
 							"-strip",
 							"-resize",
 							string.format("%dx%d>", rt.preview.max_width, rt.preview.max_height),
 							"-quality",
 							rt.preview.image_quality,
-							string.format("PNG32:%s", cache_img_url),
+							string.format("PNG32:%s", tostring(tmp_file_path)),
 						})
 						:status()
+					if cache_img_status then
+						os.rename(tostring(tmp_file_path), tostring(cache_img_url))
+					end
 				elseif mime == "svg+xml" and not is_valid_utf8_path then
+					local cache_img_url_tmp = Url(cache_img_url .. ".tmp")
+					if fs.cha(cache_img_url_tmp) then
+						fs.remove("file", cache_img_url_tmp)
+					end
+					local tmp_file_path, _ = fs.unique_name(cache_img_url_tmp)
 					-- svg under invalid utf8 path
 					cache_img_status, image_preload_err = magick_plugin
 						.with_limit()
 						:arg({
 							"-background",
 							"none",
-							tostring(job.file.url),
+							tostring(job.file.path or job.file.cache or job.file.url.path or job.file.url),
 							"-auto-orient",
 							"-strip",
 							"-flatten",
@@ -363,9 +414,12 @@ function M:preload(job)
 							string.format("%dx%d>", rt.preview.max_width, rt.preview.max_height),
 							"-quality",
 							rt.preview.image_quality,
-							string.format("PNG32:%s", cache_img_url),
+							string.format("PNG32:%s", tostring(tmp_file_path)),
 						})
 						:status()
+					if cache_img_status then
+						os.rename(tostring(tmp_file_path), tostring(cache_img_url))
+					end
 				else
 					-- other image
 					local no_skip_job = { skip = 0, file = job.file, args = {} }
@@ -384,15 +438,20 @@ function M:preload(job)
 	local cmd = "mediainfo"
 	local output, err
 	if is_valid_utf8_path then
-		output, err = Command(cmd):arg({ tostring(job.file.url) }):output()
+		output, err = Command(cmd)
+			:arg({ tostring(job.file.path or job.file.cache or job.file.url.path or job.file.url) })
+			:output()
 	else
 		cmd = "cd "
-			.. path_quote(job.file.url.parent)
+			.. path_quote(job.file.path or job.file.cache or (job.file.url.path or job.file.url).parent)
 			.. " && "
 			.. cmd
 			.. " "
-			.. path_quote(tostring(job.file.url.name))
-		output, err = Command(SHELL):arg({ "-c", cmd }):arg({ tostring(job.file.url) }):output()
+			.. path_quote(tostring(job.file.path or job.file.cache or job.file.url.name))
+		output, err = Command(SHELL)
+			:arg({ "-c", cmd })
+			:arg({ tostring(job.file.path or job.file.cache or (job.file.url.path or job.file.url)) })
+			:output()
 	end
 	if err then
 		err_msg = err_msg .. string.format("Failed to start `%s`, Do you have `%s` installed?\n", cmd, cmd)
@@ -401,6 +460,17 @@ function M:preload(job)
 		cache_mediainfo_url,
 		(err_msg ~= "" and ("Error: " .. err_msg) or "") .. (output and output.stdout or "")
 	)
+end
+
+function M:entry(job)
+	local action = job.args[1]
+
+	if action == ENTRY_ACTION.toggle_metadata then
+		set_state(STATE_KEY.hide_metadata, not get_state(STATE_KEY.hide_metadata))
+		ya.emit("peek", {
+			force = true,
+		})
+	end
 end
 
 return M
