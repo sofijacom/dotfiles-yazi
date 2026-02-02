@@ -88,21 +88,71 @@ sudo xbps-install -S mediainfo
 > [!NOTE]
 > To update plugins in Yazi, you can use the ya command.
 
- - To add a plugin:
-    
+# Package Manager
+
+You can manage your plugins and flavors using the ya pkg subcommand. For example, to install the plugin from https://github.com/owner/my-plugin.yazi, run:
+
 ```
 ya pkg add owner/my-plugin
 ```
 
- - To install plugins:
-    
+# ya pkg also supports installing a subdirectory from a monorepo as a package. For example, to install the package from https://github.com/yazi-rs/plugins/tree/main/git.yazi, run:
+
+```
+ya pkg add yazi-rs/plugins:git
+```
+
+# and it will automatically clone them from GitHub, copy them to your plugins directory, and update the package.toml to lock their versions:
+
+```
+# ~/.config/yazi/package.toml
+[[plugin.deps]]
+use  = "owner/my-plugin"
+rev  = "0573024"
+hash = "d81b64a39432fcd6224cd75d296e7510"
+
+[[plugin.deps]]
+use  = "yazi-rs/plugins:git"
+rev  = "9a1129c"
+hash = "a8e15d3c21c02a5af41d46ed04778a02"
+```
+
+# To delete a plugin:
+
+```
+ya pkg delete yazi-rs/plugins:git
+```
+
+# To list all the plugins managed by ya pkg:
+
+```
+ya pkg list
+```
+
+# To install all the plugins with locked versions from package.toml on a new system:
+
 ```
 ya pkg install
 ```
 
- - To update all extensions:
-    
+# To upgrade all the plugins to the latest version:
+
 ```
 ya pkg upgrade
 ```
-  
+
+# If you want to pin a plugin to a specific version so that it doesn't get upgraded when running ya pkg upgrade, add an = qualifier before the hash in rev:
+
+```
+[[plugin.deps]]
+use = "owner/my-plugin"
+- rev = "9a1129c"
++ rev = "=9a1129c"
+```
+
+# add and delete, they can accept multiple arguments, which means you can operate on multiple packages at once:
+
+```
+ya pkg add owner/my-plugin yazi-rs/plugins:git
+ya pkg delete owner/my-plugin yazi-rs/plugins:git
+```
